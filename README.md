@@ -3,9 +3,13 @@
 
 instrument actions for testing purpose.
 
+### Documentation
+
+See [Documentation](https://pkg.go.dev/github.com/Myriad-Dreamin/urfave-cli-san@v1.22.12)
+
 ### Primary Usage
 
-use `Inject` before app run or `InjectAndRun` for one shot
+use `Inject` before app run or `InjectAndRun` for one shot. The example is also shown as [example-InjectAndRun](https://pkg.go.dev/github.com/Myriad-Dreamin/urfave-cli-san#example-InjectAndRun).
 
 ```go
 package main
@@ -49,7 +53,7 @@ To handle before, after functions, you have two option:
 + use `clisan.WithBeforeInstrumentation` or `clisan.WithAfterInstrumentation`
 + use `clisan.WithBeforeAfterTagging([]{"$before", "$after"})`
 
-For example,
+For example, to use `WithBeforeAfterTagging`, which is also shown as [example-InjectAndRun](https://pkg.go.dev/github.com/Myriad-Dreamin/urfave-cli-san#example-InjectAndRun).
 
 ```go
 
