@@ -210,7 +210,7 @@ type transformer struct {
 }
 
 func (s *transformer) instrumentBefore(action *cli.BeforeFunc, proxy InstrumentFunc) {
-	if *action == nil {
+	if proxy == nil || *action == nil {
 		return
 	}
 	if _, ok := s.overridenBefore[action]; ok {
@@ -251,7 +251,7 @@ func (s *transformer) instrumentAction(action *interface{}, proxy InstrumentFunc
 }
 
 func (s *transformer) instrumentAfter(action *cli.AfterFunc, proxy InstrumentFunc) {
-	if *action == nil {
+	if proxy == nil || *action == nil {
 		return
 	}
 	if _, ok := s.overridenAfter[action]; ok {
