@@ -9,10 +9,6 @@ import (
 // ExampleInjectAndRun is an example of how to use InjectAndRun
 // to inject a BeforeHook and AfterHook into a cli.App
 // and run the app.
-// The output of this example is:
-// + clisan.BeforeHook(exec)
-// +   Execute(exec)
-// + clisan.AfterHook(exec)
 func ExampleInjectAndRun() {
 	err := InjectAndRun(&cli.App{
 		Commands: []cli.Command{
@@ -33,21 +29,15 @@ func ExampleInjectAndRun() {
 	if err != nil {
 		fmt.Printf("error %s", err.Error())
 	}
+	// Output:
+	// clisan.BeforeHook(exec)
+	//   Execute(exec)
+	// clisan.AfterHook(exec)
 }
 
 // ExampleWithBeforeAfterTagging is an example of how to use WithBeforeAfterTagging
 // to inject a BeforeHook and AfterHook into a cli.App
 // and run the app.
-// The output of this example is:
-// + clisan.BeforeHook$before(exec)
-// +   Before(exec)
-// + clisan.AfterHook$before(exec)
-// + clisan.BeforeHook$current(exec)
-// +   Execute(exec)
-// + clisan.AfterHook$current(exec)
-// + clisan.BeforeHook$after(exec)
-// +   After(exec)
-// + clisan.AfterHook$after(exec)
 func ExampleWithBeforeAfterTagging() {
 	err := InjectAndRun(&cli.App{
 		Commands: []cli.Command{
@@ -76,4 +66,14 @@ func ExampleWithBeforeAfterTagging() {
 	if err != nil {
 		fmt.Printf("error %s", err.Error())
 	}
+	// Output:
+	// clisan.BeforeHook$before(exec)
+	//   Before(exec)
+	// clisan.AfterHook$before(exec)
+	// clisan.BeforeHook$current(exec)
+	//   Execute(exec)
+	// clisan.AfterHook$current(exec)
+	// clisan.BeforeHook$after(exec)
+	//   After(exec)
+	// clisan.AfterHook$after(exec)
 }
